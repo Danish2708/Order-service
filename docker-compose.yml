@@ -1,0 +1,14 @@
+version: '3'
+services:
+  orders-app:
+    container_name: order-app
+    restart: always
+    build: .
+    env_file:
+      - .env
+    environment:
+      ENV_SILENT: 'true'
+      DB_CONNECTION: ${DATABASE_URI}
+      NODE_ENV: 'development'
+    ports:
+      - '9000:9000'
